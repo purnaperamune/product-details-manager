@@ -11,8 +11,8 @@ router.get("/", (req, res) => {
             else {
                 return res.status(200).send(
                     {
-                        STATUS:"OK",
-                        data:results
+                        STATUS:"Success",
+                        data: results
                     })
                 }
             });

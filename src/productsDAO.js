@@ -3,6 +3,13 @@ const fs = require('fs')
 
 const getProducts = function(done){
     // function to get products
+    fs.readFile("src/products.json", (err, data) => {
+        if(err) {
+            return done("ERROR")
+        }
+        const fileContent = JSON.parse(data)
+        return done(undefined, fileContent)
+    })
 }
 
 const getProductById = function(done){
