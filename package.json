@@ -1,0 +1,22 @@
+{
+  "name": "product-details-manager",
+  "version": "1.0.0",
+  "description": "Creating RESTful API's using ExpressJS and Routes. Build a REST API using ExpressJS to manage the product details and add new products, fetch all the products available, fetch a specific product by id, delete a product.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purnaperamune/product-details-manager.git"
+  },
+  "author": "Purna Peramune",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/purnaperamune/product-details-manager/issues"
+  },
+  "homepage": "https://github.com/purnaperamune/product-details-manager#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
