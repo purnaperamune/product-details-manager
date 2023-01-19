@@ -12,8 +12,8 @@ const insertProduct = (productDetails, done) => {
     productService.insertProduct(productDetails, done)
 }
 
-const updateProduct = (done) => {
-    productService.updateProduct(done)
+const updateProduct = (productDetails, done) => {
+    productService.updateProduct(productDetails, done)
 }
 
 const deleteProduct = (id, done) => {

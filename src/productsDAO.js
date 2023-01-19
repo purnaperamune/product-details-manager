@@ -59,8 +59,33 @@ const insertProduct = function(productDetails, done){
     })
 }
 
-const updateProduct = function(done){
+const updateProduct = function(productDetails, done){
     // function to update product
+    fs.readFile("src/products.json", (err, data) => {
+        const prodId = parseInt(productDetails.id)
+        const fileContent = JSON.parse(data)
+        const productIds = fileContent.map(p => p.id)
+
+        
+        
+        if(productIds.includes(prodId)){
+            const index = fileContent.findIndex((obj) => obj.id === prodId);
+            fileContent[index] = productDetails
+            console.log(fileContent)
+            fs.writeFile("src/products.json", JSON.stringify(fileContent), (err, count) => {
+                if(err){
+                    return done("ERROR")
+                }
+                else{
+                    return done(undefined, fileContent)
+                }
+            })
+        }
+        else{
+            return done("Product Id does not exist!")
+        }
+        
+    })
 }
 
 const deleteProduct = function(id, done){

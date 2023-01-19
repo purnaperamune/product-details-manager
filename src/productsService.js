@@ -12,8 +12,8 @@ const insertProduct = function(productDetails, done){
     productDAO.insertProduct(productDetails, done)
 }
 
-const updateProduct = function(done){
-    productDAO.updateProduct(done)
+const updateProduct = function(productDetails, done){
+    productDAO.updateProduct(productDetails, done)
 }
 
 const deleteProduct = function(id, done){

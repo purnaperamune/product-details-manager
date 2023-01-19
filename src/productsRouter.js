@@ -60,6 +60,26 @@ router.post("/", (req, res) => {
     }
 })
 
+router.put("/", (req, res) => {
+    try{
+        const productDetails = req.body;
+        console.log(productDetails)
+        productsController.updateProduct(productDetails, (err, result) => {
+            if(err){
+                return res.status(400).send(err)
+            }
+            else{
+                return res.status(200).send({
+                    Status: "Success",
+                    data: result
+                })
+            }
+        })
+    } catch{
+        res.status(400).send(err)
+    }
+})
+
 router.delete("/:productId", (req, res) => {
     try{
         const prodcutId = req.params.productId;
