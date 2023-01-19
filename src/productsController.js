@@ -4,8 +4,8 @@ const getProducts = (done) => {
     productService.getProducts(done)
 }
 
-const getProductById = (done) => {
-    productService.getProductById(done)
+const getProductById = (id, done) => {
+    productService.getProductById(id, done)
 }
 
 const insertProduct = (done) => {

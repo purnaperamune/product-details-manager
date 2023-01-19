@@ -4,8 +4,8 @@ const getProducts = function(done){
     productDAO.getProducts(done);
 }
 
-const getProductById = function(done){
-    productDAO.getProductById(done);
+const getProductById = function(id, done){
+    productDAO.getProductById(id, done);
 }
 
 const insertProduct = function(done){
