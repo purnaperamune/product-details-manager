@@ -8,8 +8,8 @@ const getProductById = function(id, done){
     productDAO.getProductById(id, done);
 }
 
-const insertProduct = function(done){
-    productDAO.saveProduct(done)
+const insertProduct = function(productDetails, done){
+    productDAO.insertProduct(productDetails, done)
 }
 
 const updateProduct = function(done){

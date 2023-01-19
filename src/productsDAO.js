@@ -33,8 +33,29 @@ const getProductById = function(id, done){
     })
 }
 
-const insertProduct = function(done){
+const insertProduct = function(productDetails, done){
     // function to input products
+    fs.readFile("src/products.json", (err, data) => {
+        const prodId = parseInt(productDetails.id)
+        const fileContent = JSON.parse(data)
+        const productIds = fileContent.map(p => p.id)
+
+        if(productIds.includes(prodId)){
+            return done("Product Id already exists!")
+        }
+        else{
+            fileContent.push(productDetails)
+            fs.writeFile("src/products.json", JSON.stringify(fileContent), (err, count) => {
+                if(err){
+                    return done("ERROR")
+                }
+                else{
+                    return done(undefined, fileContent)
+                }
+            })
+        }
+        
+    })
 }
 
 const updateProduct = function(done){

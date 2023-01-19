@@ -8,8 +8,8 @@ const getProductById = (id, done) => {
     productService.getProductById(id, done)
 }
 
-const insertProduct = (done) => {
-    productService.insertProduct(done)
+const insertProduct = (productDetails, done) => {
+    productService.insertProduct(productDetails, done)
 }
 
 const updateProduct = (done) => {
