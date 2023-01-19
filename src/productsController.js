@@ -16,8 +16,8 @@ const updateProduct = (done) => {
     productService.updateProduct(done)
 }
 
-const deleteProduct = (done) => {
-    productService.deleteProduct(done)
+const deleteProduct = (id, done) => {
+    productService.deleteProduct(id, done)
 }
 
 module.exports = {

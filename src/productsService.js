@@ -16,8 +16,8 @@ const updateProduct = function(done){
     productDAO.updateProduct(done)
 }
 
-const deleteProduct = function(done){
-    productDAO.deleteProduct(done)
+const deleteProduct = function(id, done){
+    productDAO.deleteProduct(id, done)
 }
 
 module.exports = {

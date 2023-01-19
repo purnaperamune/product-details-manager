@@ -1,5 +1,6 @@
 const products = require("./products.json")
 const fs = require('fs')
+const e = require("express")
 
 const getProducts = function(done){
     // function to get all products
@@ -62,8 +63,36 @@ const updateProduct = function(done){
     // function to update product
 }
 
-const deleteProduct = function(done){
+const deleteProduct = function(id, done){
     // function to delete products
+    console.log(id)
+    // functoin to get ther product by id
+    fs.readFile("src/products.json", (err, data) => {
+        if(err){
+            return done("ERROR")
+        }
+        const fileContent = JSON.parse(data)
+        const prodId = parseInt(id)
+
+        const productIds = fileContent.map(p => p.id)
+        
+        if(productIds.includes(prodId)){
+            const index = fileContent.findIndex((obj) => obj.id === prodId);
+            fileContent.splice(index, 1)
+            console.log("Sliced", fileContent)
+            fs.writeFile("src/products.json", JSON.stringify(fileContent), (err, count) => {
+                if(err){
+                    return done("ERROR")
+                }
+                else{
+                    return done(undefined, fileContent)
+                }
+            })
+        }
+        else{
+            return done("Product Id does not exist!")
+        }
+    })
 }
 
 
