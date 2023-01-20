@@ -1,0 +1,83 @@
+swagger: "2.0"
+info:
+  description: "Node API for Product Manager"
+  version: 1.0.0
+  title: Product Manager API
+host: localhost:8000
+basePath: /api/
+schemes:
+  - http
+
+paths:
+  /v1/products:
+    get:
+      tags:
+        - Products
+      summary: Get all products
+      security: []
+      description: Get all existing products
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Products
+      summary: Add a new product
+      description: Adding new product to the product list
+      parameters:
+        - in: body
+          name: productDetails
+          description: Product details that needs to be added to the list
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Products
+      summary: Update product
+      description: Update existing product details
+      parameters:
+        - in: body
+          name: productDetails
+          description: New product details that needs to be added to the list
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+
+  /v1/products/{productId}:
+    get:
+      tags:
+        - Products
+      summary: Get product details by id
+      security: []
+      description: Getting product details by its id
+      parameters:
+        - in: path
+          name: productId
+          description: id of the product
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Products
+      summary: Delete product by id
+      description: Delete existing products by id
+      parameters:
+        - in: path
+          name: productId
+          description: id of the product that need to be deleted
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Success
+  
