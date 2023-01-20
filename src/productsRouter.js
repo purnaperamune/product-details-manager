@@ -43,7 +43,6 @@ router.get("/:productId", (req, res) => {
 router.post("/", (req, res) => {
     try{
         const productDetails = req.body;
-        console.log(productDetails)
         productsController.insertProduct(productDetails, (err, result) => {
             if(err){
                 return res.status(400).send(err)
@@ -63,7 +62,6 @@ router.post("/", (req, res) => {
 router.put("/", (req, res) => {
     try{
         const productDetails = req.body;
-        console.log(productDetails)
         productsController.updateProduct(productDetails, (err, result) => {
             if(err){
                 return res.status(400).send(err)

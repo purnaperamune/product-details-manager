@@ -14,7 +14,6 @@ const getProducts = function(done){
 }
 
 const getProductById = function(id, done){
-    console.log(id)
     // functoin to get the product by id
     fs.readFile("src/products.json", (err, data) => {
         if(err){
@@ -68,7 +67,6 @@ const updateProduct = function(productDetails, done){
         if(productIds.includes(prodId)){
             const index = fileContent.findIndex((obj) => obj.id === prodId);
             fileContent[index] = productDetails
-            console.log(fileContent)
             fs.writeFile("src/products.json", JSON.stringify(fileContent), (err, count) => {
                 if(err){
                     return done("ERROR")
@@ -98,7 +96,6 @@ const deleteProduct = function(id, done){
         if(productIds.includes(prodId)){
             const index = fileContent.findIndex((obj) => obj.id === prodId);
             fileContent.splice(index, 1)
-            console.log("Sliced", fileContent)
             fs.writeFile("src/products.json", JSON.stringify(fileContent), (err, count) => {
                 if(err){
                     return done("ERROR")
